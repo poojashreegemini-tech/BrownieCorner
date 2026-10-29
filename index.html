@@ -1,0 +1,1983 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Pooja's Brownie Corner</title>
+
+    <style>
+
+        /* =================================
+           GENERAL
+        ================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+
+            background: #fffdf9;
+
+            color: #402820;
+
+            overflow-x: hidden;
+        }
+
+
+        /* =================================
+           NAVIGATION BAR
+        ================================= */
+
+        .navbar {
+            position: sticky;
+
+            top: 0;
+
+            z-index: 1000;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            padding: 18px 8%;
+
+            background: rgba(255, 255, 255, 0.95);
+
+            backdrop-filter: blur(12px);
+
+            box-shadow:
+                0 4px 20px
+                rgba(75, 45, 35, 0.10);
+        }
+
+
+        .logo {
+            font-size: 27px;
+
+            font-weight: bold;
+
+            color: #4e2a20;
+        }
+
+
+        .logo span {
+            color: #c97845;
+        }
+
+
+        .nav-links {
+            display: flex;
+
+            align-items: center;
+
+            gap: 28px;
+
+            list-style: none;
+        }
+
+
+        .nav-links a {
+            color: #4e2a20;
+
+            text-decoration: none;
+
+            font-size: 16px;
+
+            font-weight: 600;
+
+            transition: 0.3s;
+        }
+
+
+        .nav-links a:hover {
+            color: #c97845;
+        }
+
+
+        .cart {
+            display: inline-block;
+
+            padding: 11px 18px;
+
+            border-radius: 25px;
+
+            background: #4e2a20;
+
+            color: white;
+
+            font-weight: bold;
+        }
+
+
+        /* =================================
+           HERO SECTION
+        ================================= */
+
+        .hero {
+            min-height: 580px;
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            align-items: center;
+
+            gap: 55px;
+
+            padding: 70px 8%;
+
+            background:
+                radial-gradient(
+                    circle at 85% 20%,
+                    rgba(255, 255, 255, 0.85),
+                    transparent 25%
+                ),
+                linear-gradient(
+                    135deg,
+                    #fff9f0,
+                    #ffead9,
+                    #f8d8c1
+                );
+        }
+
+
+        .hero-content {
+            animation: slideUp 1s ease;
+        }
+
+
+        .small-heading {
+            display: inline-block;
+
+            padding: 10px 18px;
+
+            margin-bottom: 22px;
+
+            border-radius: 30px;
+
+            border: 1px solid #eac9b3;
+
+            background: white;
+
+            color: #8a4f32;
+
+            font-weight: 600;
+
+            box-shadow:
+                0 5px 15px
+                rgba(95, 55, 35, 0.08);
+        }
+
+
+        .hero h1 {
+            max-width: 750px;
+
+            margin-bottom: 22px;
+
+            color: #4e2a20;
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size:
+                clamp(44px, 6vw, 70px);
+
+            line-height: 1.08;
+        }
+
+
+        .hero h1 span {
+            color: #b65c33;
+        }
+
+
+        .hero p {
+            max-width: 650px;
+
+            margin-bottom: 32px;
+
+            color: #715348;
+
+            font-size: 18px;
+
+            line-height: 1.8;
+        }
+
+
+        /* =================================
+           HERO BUTTONS
+        ================================= */
+
+        .hero-buttons {
+            display: flex;
+
+            gap: 15px;
+
+            flex-wrap: wrap;
+        }
+
+
+        .primary-button,
+        .secondary-button {
+            display: inline-block;
+
+            padding: 14px 28px;
+
+            border-radius: 30px;
+
+            text-decoration: none;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+
+        .primary-button {
+            background: #4e2a20;
+
+            color: white;
+
+            border: 2px solid #4e2a20;
+        }
+
+
+        .primary-button:hover {
+            background: #b65c33;
+
+            border-color: #b65c33;
+
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 8px 20px
+                rgba(120, 60, 40, 0.25);
+        }
+
+
+        .secondary-button {
+            background: white;
+
+            color: #4e2a20;
+
+            border: 2px solid #4e2a20;
+        }
+
+
+        .secondary-button:hover {
+            background: #4e2a20;
+
+            color: white;
+
+            transform: translateY(-3px);
+        }
+
+
+        /* =================================
+           HERO IMAGE
+        ================================= */
+
+        .hero-image-container {
+            position: relative;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+        }
+
+
+        .hero-image {
+            width: 100%;
+
+            max-width: 500px;
+
+            height: 430px;
+
+            object-fit: cover;
+
+            border-radius: 40px;
+
+            border: 8px solid white;
+
+            box-shadow:
+                0 25px 55px
+                rgba(78, 42, 32, 0.18);
+
+            animation:
+                brownieFloat 4s
+                ease-in-out infinite;
+        }
+
+
+        .floating-label {
+            position: absolute;
+
+            bottom: 30px;
+
+            left: -10px;
+
+            padding: 14px 20px;
+
+            border-radius: 15px;
+
+            background: white;
+
+            color: #4e2a20;
+
+            font-weight: bold;
+
+            box-shadow:
+                0 10px 25px
+                rgba(70, 40, 30, 0.15);
+        }
+
+
+        /* =================================
+           FEATURES
+        ================================= */
+
+        .features {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 25px;
+
+            padding: 50px 8%;
+
+            background: white;
+        }
+
+
+        .feature-box {
+            display: flex;
+
+            align-items: center;
+
+            gap: 16px;
+
+            padding: 25px;
+
+            border-radius: 20px;
+
+            border:
+                1px solid #f0dfd1;
+
+            background: #fff9f4;
+
+            box-shadow:
+                0 8px 25px
+                rgba(70, 40, 30, 0.06);
+
+            transition: 0.3s;
+        }
+
+
+        .feature-box:hover {
+            transform:
+                translateY(-6px);
+
+            box-shadow:
+                0 15px 30px
+                rgba(70, 40, 30, 0.12);
+        }
+
+
+        .feature-icon {
+            font-size: 40px;
+        }
+
+
+        .feature-box h3 {
+            margin-bottom: 6px;
+
+            color: #4e2a20;
+        }
+
+
+        .feature-box p {
+            color: #79635b;
+
+            font-size: 14px;
+
+            line-height: 1.5;
+        }
+
+
+        /* =================================
+           BROWNIE MENU
+        ================================= */
+
+        .brownies {
+            padding: 80px 8%;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    #fffdf9,
+                    #fff1e5
+                );
+        }
+
+
+        .section-heading {
+            max-width: 680px;
+
+            margin:
+                0 auto 45px;
+
+            text-align: center;
+        }
+
+
+        .section-heading span {
+            color: #b65c33;
+
+            font-size: 14px;
+
+            font-weight: bold;
+
+            letter-spacing: 2px;
+        }
+
+
+        .section-heading h2 {
+            margin:
+                10px 0 15px;
+
+            color: #4e2a20;
+
+            font-family:
+                Georgia,
+                serif;
+
+            font-size: 43px;
+        }
+
+
+        .section-heading p {
+            color: #78645d;
+
+            line-height: 1.7;
+        }
+
+
+        /* =================================
+           PRODUCT GRID
+        ================================= */
+
+        .brownie-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(
+                    auto-fit,
+                    minmax(270px, 1fr)
+                );
+
+            gap: 28px;
+        }
+
+
+        /* =================================
+           PRODUCT CARDS
+        ================================= */
+
+        .brownie-card {
+            position: relative;
+
+            overflow: hidden;
+
+            border-radius: 24px;
+
+            border:
+                1px solid #f0e0d4;
+
+            background: white;
+
+            box-shadow:
+                0 10px 30px
+                rgba(70, 40, 30, 0.08);
+
+            transition: 0.35s;
+        }
+
+
+        .brownie-card:hover {
+            transform:
+                translateY(-10px);
+
+            box-shadow:
+                0 20px 40px
+                rgba(70, 40, 30, 0.16);
+        }
+
+
+        /* REAL BROWNIE IMAGES */
+
+        .brownie-image {
+            width: 100%;
+
+            height: 250px;
+
+            overflow: hidden;
+
+            background: #f5eee9;
+        }
+
+
+        .brownie-image img {
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover;
+
+            display: block;
+
+            transition:
+                transform 0.5s ease;
+        }
+
+
+        .brownie-card:hover
+        .brownie-image img {
+            transform: scale(1.08);
+        }
+
+
+        /* =================================
+           PRODUCT TAG
+        ================================= */
+
+        .tag {
+            position: absolute;
+
+            top: 15px;
+
+            left: 15px;
+
+            z-index: 5;
+
+            padding: 8px 14px;
+
+            border-radius: 20px;
+
+            background: #4e2a20;
+
+            color: white;
+
+            font-size: 12px;
+
+            font-weight: bold;
+
+            box-shadow:
+                0 4px 15px
+                rgba(0, 0, 0, 0.15);
+        }
+
+
+        /* =================================
+           PRODUCT INFORMATION
+        ================================= */
+
+        .brownie-details {
+            padding: 23px;
+        }
+
+
+        .brownie-details h3 {
+            margin-bottom: 9px;
+
+            color: #4e2a20;
+
+            font-size: 21px;
+        }
+
+
+        .brownie-details p {
+            min-height: 46px;
+
+            margin-bottom: 18px;
+
+            color: #79655d;
+
+            font-size: 14px;
+
+            line-height: 1.6;
+        }
+
+
+        .price-row {
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            gap: 10px;
+        }
+
+
+        .price {
+            color: #b65c33;
+
+            font-size: 23px;
+
+            font-weight: bold;
+        }
+
+
+        .add-button {
+            padding:
+                11px 19px;
+
+            border: none;
+
+            border-radius: 22px;
+
+            background: #4e2a20;
+
+            color: white;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+
+        .add-button:hover {
+            background: #b65c33;
+
+            transform: scale(1.05);
+        }
+
+
+        /* =================================
+           DELIVERY SECTION
+        ================================= */
+
+        .delivery-section {
+            position: relative;
+
+            overflow: hidden;
+
+            height: 270px;
+
+            padding-top: 40px;
+
+            background:
+                linear-gradient(
+                    to bottom,
+
+                    #eaf8ff 0%,
+
+                    #f7fcff 67%,
+
+                    #777777 68%,
+
+                    #484848 100%
+                );
+        }
+
+
+        .delivery-heading {
+            position: relative;
+
+            z-index: 3;
+
+            text-align: center;
+        }
+
+
+        .delivery-heading h2 {
+            color: #4e2a20;
+
+            font-size: 31px;
+        }
+
+
+        .delivery-heading p {
+            margin-top: 8px;
+
+            color: #705850;
+        }
+
+
+        .road-line {
+            position: absolute;
+
+            bottom: 32px;
+
+            width: 100%;
+
+            height: 7px;
+
+            background:
+                repeating-linear-gradient(
+                    to right,
+
+                    white 0,
+
+                    white 60px,
+
+                    transparent 60px,
+
+                    transparent 110px
+                );
+        }
+
+
+        .delivery-boy {
+            position: absolute;
+
+            bottom: 49px;
+
+            left: -230px;
+
+            animation:
+                deliveryMove
+                8s linear infinite;
+        }
+
+
+        .scooter {
+            font-size: 85px;
+
+            transform:
+                scaleX(-1);
+        }
+
+
+        .delivery-box {
+            position: absolute;
+
+            top: -6px;
+
+            left: 15px;
+
+            padding: 7px;
+
+            border-radius: 5px;
+
+            background: #ffd166;
+
+            color: #4e2a20;
+
+            font-size: 9px;
+
+            font-weight: bold;
+        }
+
+
+        /* =================================
+           ABOUT
+        ================================= */
+
+        .about {
+            display: grid;
+
+            grid-template-columns:
+                0.8fr 1.2fr;
+
+            align-items: center;
+
+            gap: 55px;
+
+            padding: 80px 10%;
+
+            background: #fff7ef;
+        }
+
+
+        .about-image {
+            width: 100%;
+
+            height: 380px;
+
+            object-fit: cover;
+
+            border-radius:
+                35% 65% 55% 45%;
+
+            border: 7px solid white;
+
+            box-shadow:
+                0 20px 40px
+                rgba(70, 40, 30, 0.14);
+        }
+
+
+        .about-content span {
+            color: #b65c33;
+
+            font-weight: bold;
+
+            letter-spacing: 2px;
+        }
+
+
+        .about-content h2 {
+            margin:
+                12px 0 18px;
+
+            color: #4e2a20;
+
+            font-family:
+                Georgia,
+                serif;
+
+            font-size: 42px;
+        }
+
+
+        .about-content p {
+            margin-bottom: 25px;
+
+            color: #75625a;
+
+            line-height: 1.8;
+        }
+
+
+        /* =================================
+           FOOTER
+        ================================= */
+
+        footer {
+            padding: 45px 8%;
+
+            text-align: center;
+
+            background: #4e2a20;
+
+            color: #f6eae5;
+        }
+
+
+        footer h2 {
+            margin-bottom: 10px;
+
+            color: white;
+        }
+
+
+        footer h2 span {
+            color: #f5b987;
+        }
+
+
+        footer p {
+            line-height: 1.7;
+        }
+
+
+        /* =================================
+           ANIMATIONS
+        ================================= */
+
+        @keyframes slideUp {
+
+            from {
+                opacity: 0;
+
+                transform:
+                    translateY(35px);
+            }
+
+            to {
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+            }
+        }
+
+
+        @keyframes brownieFloat {
+
+            0%,
+            100% {
+                transform:
+                    translateY(0);
+            }
+
+            50% {
+                transform:
+                    translateY(-14px);
+            }
+        }
+
+
+        @keyframes deliveryMove {
+
+            0% {
+                left: -230px;
+            }
+
+            100% {
+                left:
+                    calc(100% + 230px);
+            }
+        }
+
+
+        /* =================================
+           RESPONSIVE
+        ================================= */
+
+        @media(max-width: 900px) {
+
+            .hero,
+            .about {
+                grid-template-columns: 1fr;
+
+                text-align: center;
+            }
+
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+
+            .hero p {
+                margin-left: auto;
+
+                margin-right: auto;
+            }
+
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+
+            .hero-image {
+                max-width: 600px;
+            }
+
+        }
+
+
+        @media(max-width: 700px) {
+
+            .navbar {
+                flex-direction: column;
+
+                gap: 15px;
+            }
+
+
+            .nav-links {
+                flex-wrap: wrap;
+
+                justify-content: center;
+
+                gap: 15px;
+            }
+
+
+            .hero {
+                padding:
+                    55px 6%;
+            }
+
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+
+            .hero-image {
+                height: 330px;
+            }
+
+
+            .brownies {
+                padding:
+                    60px 6%;
+            }
+
+
+            .section-heading h2,
+            .about-content h2 {
+                font-size: 34px;
+            }
+
+
+            .delivery-heading h2 {
+                font-size: 25px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =================================
+         NAVBAR
+    ================================== -->
+
+    <nav class="navbar">
+
+
+        <div class="logo">
+
+            Pooja's
+            <span>Brownie Corner</span>
+
+        </div>
+
+
+        <ul class="nav-links">
+
+
+            <li>
+
+                <a href="#home">
+                    Home
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a href="#brownies">
+                    Brownies
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a href="#about">
+                    About
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <span class="cart">
+
+                    🛒 Cart:
+
+                    <span id="cartCount">
+                        0
+                    </span>
+
+                </span>
+
+            </li>
+
+
+        </ul>
+
+
+    </nav>
+
+
+    <!-- =================================
+         HERO SECTION
+    ================================== -->
+
+    <section
+        class="hero"
+        id="home"
+    >
+
+
+        <div class="hero-content">
+
+
+            <span class="small-heading">
+
+                🍫 Fresh brownies delivered to your door
+
+            </span>
+
+
+            <h1>
+
+                Happiness is a warm
+
+                <span>
+                    chocolate brownie.
+                </span>
+
+            </h1>
+
+
+            <p>
+
+                Discover rich, fudgy and chocolate-filled
+                brownies made for every sweet craving.
+                Pick your favourite brownie and have
+                chocolate happiness delivered to you.
+
+            </p>
+
+
+            <div class="hero-buttons">
+
+
+                <a
+                    href="#brownies"
+                    class="primary-button"
+                >
+
+                    Order Brownies
+
+                </a>
+
+
+                <a
+                    href="#about"
+                    class="secondary-button"
+                >
+
+                    About Us
+
+                </a>
+
+
+            </div>
+
+
+        </div>
+
+
+        <div class="hero-image-container">
+
+
+            <img
+                class="hero-image"
+                src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?q=80&w=1000&auto=format&fit=crop"
+                alt="Stack of chocolate brownies"
+            >
+
+
+            <div class="floating-label">
+
+                🍫 Fresh • Fudgy • Delicious
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+    <!-- =================================
+         FEATURES
+    ================================== -->
+
+    <section class="features">
+
+
+        <div class="feature-box">
+
+
+            <div class="feature-icon">
+
+                🍫
+
+            </div>
+
+
+            <div>
+
+                <h3>
+                    Rich Chocolate
+                </h3>
+
+                <p>
+                    Delicious chocolate-filled
+                    brownies for every craving.
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="feature-box">
+
+
+            <div class="feature-icon">
+
+                ♨️
+
+            </div>
+
+
+            <div>
+
+                <h3>
+                    Freshly Made
+                </h3>
+
+                <p>
+                    Fresh brownie treats prepared
+                    for a delicious experience.
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="feature-box">
+
+
+            <div class="feature-icon">
+
+                🛵
+
+            </div>
+
+
+            <div>
+
+                <h3>
+                    Doorstep Delivery
+                </h3>
+
+                <p>
+                    Your brownie favourites delivered
+                    directly to your doorstep.
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+    <!-- =================================
+         BROWNIE MENU
+    ================================== -->
+
+    <section
+        class="brownies"
+        id="brownies"
+    >
+
+
+        <div class="section-heading">
+
+
+            <span>
+
+                BROWNIE MENU
+
+            </span>
+
+
+            <h2>
+
+                Choose Your Favourite Brownie
+
+            </h2>
+
+
+            <p>
+
+                Rich chocolate brownies with different
+                flavours, toppings and textures.
+                Pick your favourite and add it to your cart.
+
+            </p>
+
+
+        </div>
+
+
+        <div class="brownie-grid">
+
+
+            <!-- PRODUCT 1 -->
+
+            <article class="brownie-card">
+
+
+                <span class="tag">
+
+                    Bestseller
+
+                </span>
+
+
+                <div class="brownie-image">
+
+
+                    <img
+                        src="https://images.unsplash.com/photo-1612078960206-1709f1f0c969?q=80&w=1000&auto=format&fit=crop"
+                        alt="Classic chocolate fudge brownie"
+                    >
+
+
+                </div>
+
+
+                <div class="brownie-details">
+
+
+                    <h3>
+
+                        Classic Fudge Brownie
+
+                    </h3>
+
+
+                    <p>
+
+                        Rich and fudgy chocolate brownie
+                        with a delicious chocolate finish.
+
+                    </p>
+
+
+                    <div class="price-row">
+
+
+                        <span class="price">
+
+                            ₹129
+
+                        </span>
+
+
+                        <button
+                            type="button"
+                            class="add-button"
+                            onclick="addToCart(this)"
+                        >
+
+                            Add +
+
+                        </button>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </article>
+
+
+            <!-- PRODUCT 2 -->
+
+            <article class="brownie-card">
+
+
+                <span class="tag">
+
+                    Popular
+
+                </span>
+
+
+                <div class="brownie-image">
+
+
+                    <img
+                        src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?q=80&w=1000&auto=format&fit=crop"
+                        alt="Chocolate brownie delight"
+                    >
+
+
+                </div>
+
+
+                <div class="brownie-details">
+
+
+                    <h3>
+
+                        Brownie Chocolate Delight
+
+                    </h3>
+
+
+                    <p>
+
+                        Rich chocolate brownie finished
+                        with an indulgent chocolate topping.
+
+                    </p>
+
+
+                    <div class="price-row">
+
+
+                        <span class="price">
+
+                            ₹229
+
+                        </span>
+
+
+                        <button
+                            type="button"
+                            class="add-button"
+                            onclick="addToCart(this)"
+                        >
+
+                            Add +
+
+                        </button>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </article>
+
+
+            <!-- PRODUCT 3 -->
+
+            <article class="brownie-card">
+
+
+                <span class="tag">
+
+                    Special
+
+                </span>
+
+
+                <div class="brownie-image">
+
+
+                    <img
+                        src="https://images.unsplash.com/photo-1703876087817-010eef3e0d59?q=80&w=1000&auto=format&fit=crop"
+                        alt="Chocolate brownies with chocolate chips"
+                    >
+
+
+                </div>
+
+
+                <div class="brownie-details">
+
+
+                    <h3>
+
+                        Double Chocolate Brownie
+
+                    </h3>
+
+
+                    <p>
+
+                        Chocolate-rich brownie loaded
+                        with extra chocolate in every bite.
+
+                    </p>
+
+
+                    <div class="price-row">
+
+
+                        <span class="price">
+
+                            ₹169
+
+                        </span>
+
+
+                        <button
+                            type="button"
+                            class="add-button"
+                            onclick="addToCart(this)"
+                        >
+
+                            Add +
+
+                        </button>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </article>
+
+
+            <!-- PRODUCT 4 -->
+
+            <article class="brownie-card">
+
+
+                <span class="tag">
+
+                    Premium
+
+                </span>
+
+
+                <div class="brownie-image">
+
+
+                    <img
+                        src="https://images.unsplash.com/photo-1589218436045-ee320057f443?w=1000&q=80&auto=format&fit=crop"
+                        alt="Premium chocolate brownies"
+                    >
+
+
+                </div>
+
+
+                <div class="brownie-details">
+
+
+                    <h3>
+
+                        Chocolate Frosting Brownie
+
+                    </h3>
+
+
+                    <p>
+
+                        Chocolate brownie with a rich
+                        and delicious chocolate finish.
+
+                    </p>
+
+
+                    <div class="price-row">
+
+
+                        <span class="price">
+
+                            ₹189
+
+                        </span>
+
+
+                        <button
+                            type="button"
+                            class="add-button"
+                            onclick="addToCart(this)"
+                        >
+
+                            Add +
+
+                        </button>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </article>
+
+
+            <!-- PRODUCT 5 -->
+
+            <article class="brownie-card">
+
+
+                <span class="tag">
+
+                    New
+
+                </span>
+
+
+                <div class="brownie-image">
+
+
+                    <img
+                        src="https://images.unsplash.com/photo-1589218436045-ee320057f443?q=80&w=1000&auto=format&fit=crop"
+                        alt="Dark chocolate brownies"
+                    >
+
+
+                </div>
+
+
+                <div class="brownie-details">
+
+
+                    <h3>
+
+                        Dark Chocolate Brownie
+
+                    </h3>
+
+
+                    <p>
+
+                        Dense chocolate brownie for
+                        anyone who loves rich chocolate.
+
+                    </p>
+
+
+                    <div class="price-row">
+
+
+                        <span class="price">
+
+                            ₹159
+
+                        </span>
+
+
+                        <button
+                            type="button"
+                            class="add-button"
+                            onclick="addToCart(this)"
+                        >
+
+                            Add +
+
+                        </button>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </article>
+
+
+            <!-- PRODUCT 6 -->
+
+            <article class="brownie-card">
+
+
+                <span class="tag">
+
+                    Favourite
+
+                </span>
+
+
+                <div class="brownie-image">
+
+
+                    <img
+                        src="https://images.unsplash.com/photo-1612078960206-1709f1f0c969?q=80&w=1000&auto=format&fit=crop"
+                        alt="Chocolate drizzle brownies"
+                    >
+
+
+                </div>
+
+
+                <div class="brownie-details">
+
+
+                    <h3>
+
+                        Chocolate Drizzle Brownie
+
+                    </h3>
+
+
+                    <p>
+
+                        Soft chocolate brownie finished
+                        with a tempting chocolate drizzle.
+
+                    </p>
+
+
+                    <div class="price-row">
+
+
+                        <span class="price">
+
+                            ₹199
+
+                        </span>
+
+
+                        <button
+                            type="button"
+                            class="add-button"
+                            onclick="addToCart(this)"
+                        >
+
+                            Add +
+
+                        </button>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </article>
+
+
+        </div>
+
+
+    </section>
+
+
+    <!-- =================================
+         DELIVERY ANIMATION
+    ================================== -->
+
+    <section class="delivery-section">
+
+
+        <div class="delivery-heading">
+
+
+            <h2>
+
+                Your brownies are on the way! 🛵
+
+            </h2>
+
+
+            <p>
+
+                Chocolate happiness delivered
+                directly to your doorstep.
+
+            </p>
+
+
+        </div>
+
+
+        <div class="delivery-boy">
+
+
+            <div class="delivery-box">
+
+                BROWNIES
+
+            </div>
+
+
+            <div class="scooter">
+
+                🛵
+
+            </div>
+
+
+        </div>
+
+
+        <div class="road-line"></div>
+
+
+    </section>
+
+
+    <!-- =================================
+         ABOUT
+    ================================== -->
+
+    <section
+        class="about"
+        id="about"
+    >
+
+
+        <div>
+
+
+            <img
+                class="about-image"
+                src="https://images.unsplash.com/photo-1612078960206-1709f1f0c969?q=80&w=1000&auto=format&fit=crop"
+                alt="Chocolate brownies"
+            >
+
+
+        </div>
+
+
+        <div class="about-content">
+
+
+            <span>
+
+                ABOUT US
+
+            </span>
+
+
+            <h2>
+
+                Baked for chocolate lovers
+
+            </h2>
+
+
+            <p>
+
+                Pooja's Brownie Corner is all about
+                delicious chocolate brownie treats.
+
+                Explore classic brownies, dark chocolate
+                brownies and rich chocolate combinations
+                designed for every brownie craving.
+
+            </p>
+
+
+            <a
+                href="#brownies"
+                class="primary-button"
+            >
+
+                Explore Brownies
+
+            </a>
+
+
+        </div>
+
+
+    </section>
+
+
+    <!-- =================================
+         FOOTER
+    ================================== -->
+
+    <footer>
+
+
+        <h2>
+
+            Pooja's
+
+            <span>
+
+                Brownie Corner
+
+            </span>
+
+        </h2>
+
+
+        <p>
+
+            Chocolate • Brownies • Sweet Moments
+
+        </p>
+
+
+        <br>
+
+
+        <p>
+
+            &copy; 2026 Pooja's Brownie Corner
+
+        </p>
+
+
+    </footer>
+
+
+    <!-- =================================
+         JAVASCRIPT
+    ================================== -->
+
+    <script>
+
+        let cartItems = 0;
+
+
+        function addToCart(button) {
+
+            cartItems++;
+
+
+            document
+                .getElementById("cartCount")
+                .textContent = cartItems;
+
+
+            const originalText =
+                button.textContent;
+
+
+            button.textContent =
+                "Added ✓";
+
+
+            button.style.background =
+                "#2e7d32";
+
+
+            setTimeout(function () {
+
+                button.textContent =
+                    originalText;
+
+                button.style.background =
+                    "";
+
+            }, 1000);
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>
